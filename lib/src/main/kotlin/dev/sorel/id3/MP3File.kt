@@ -23,7 +23,7 @@ class MP3File(
 
     private fun isID3v1(bytes: ByteArray): Boolean {
         val lastBytes = bytes.takeLast(ID3v1.TAG_SIZE).toByteArray()
-        if (bytes.size < ID3v1.TAG_SIZE) throw ID3v1Exception("File is too small to be an ID3v1 tag")
+        if (bytes.size < ID3v1.TAG_SIZE) throw ID3v1Exception("File is too small to have ID3v1 tag")
         return lastBytes.decodeToString().take(3) == ID3v1.SIGNATURE
     }
 
